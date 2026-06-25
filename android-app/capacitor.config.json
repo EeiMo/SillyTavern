@@ -1,0 +1,11 @@
+{
+  "appId": "com.eeimo.sillytavern",
+  "appName": "SillyTavern",
+  "webDir": "www",
+  "androidScheme": "http",
+  "backgroundColor": "#202124",
+  "server": {
+    "androidScheme": "http",
+    "allowNavigation": ["47.74.57.111"]
+  }
+}

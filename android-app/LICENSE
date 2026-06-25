@@ -1,0 +1,12 @@
+SPDX-License-Identifier: AGPL-3.0-only
+
+This directory adds an Android WebView wrapper for SillyTavern.
+
+SillyTavern is licensed under the GNU Affero General Public License v3.0 only
+(AGPL-3.0-only). See the repository-root LICENSE file for the full text.
+
+All source files in this directory are licensed under AGPL-3.0-only to keep
+the combined work under a single copyleft license, consistent with the
+upstream project. "SillyTavern" is the name of the upstream project; this
+wrapper is unaffiliated with the official SillyTavern team. All rights to the
+SillyTavern name and source belong to their respective copyright holders.

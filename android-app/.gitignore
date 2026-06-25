@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# build output
+www/
+android/.gradle/
+android/build/
+android/app/build/
+android/captures/
+android/local.properties
+
+# capacitor generated
+android/capacitor-cordova-android-plugins/
+android/capacitor.settings.gradle
+
+# logs / os
+build_log.txt
+*.log
+.DS_Store
