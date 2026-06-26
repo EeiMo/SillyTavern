@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#15110d" />
+<title>SillyTavern · 安卓下载</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400;9..144,500;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#15110d;
+    --bg-2:#1c1812;
+    --ink:#ece3d2;
+    --ink-dim:#a89a82;
+    --ink-faint:#6b5f4d;
+    --amber:#e0a44a;
+    --amber-glow:#f0b65a;
+    --ember:#c8542a;
+    --line:rgba(236,227,210,.10);
+    --serif:"Fraunces","Songti SC","Noto Serif SC",serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    position:relative;
+  }
+  /* grain + warm vignette atmosphere */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(224,164,74,.14), transparent 60%),
+      radial-gradient(90% 60% at 50% 120%, rgba(200,84,42,.10), transparent 60%);
+  }
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:2;opacity:.5;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.93  0 0 0 0 0.89  0 0 0 0 0.82  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode:overlay;
+  }
+
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;position:relative;z-index:3}
+
+  /* masthead */
+  header{padding:34px 0 0;display:flex;align-items:center;justify-content:space-between}
+  .mark{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:.01em}
+  .sign{
+    width:34px;height:34px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,var(--amber-glow),var(--ember) 70%,#3a1a0a);
+    box-shadow:0 0 22px rgba(240,182,90,.55),inset 0 0 8px rgba(0,0,0,.4);
+    flex:none;animation:flicker 4.5s ease-in-out infinite;
+  }
+  @keyframes flicker{
+    0%,100%{box-shadow:0 0 22px rgba(240,182,90,.55),inset 0 0 8px rgba(0,0,0,.4)}
+    45%{box-shadow:0 0 30px rgba(240,182,90,.75),inset 0 0 8px rgba(0,0,0,.4)}
+    55%{box-shadow:0 0 14px rgba(240,182,90,.40),inset 0 0 8px rgba(0,0,0,.5)}
+  }
+  .crumb{font-family:var(--mono);font-size:12px;color:var(--ink-faint);letter-spacing:.06em;text-transform:uppercase}
+
+  /* hero */
+  .hero{padding:78px 0 30px}
+  .kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:22px}
+  h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(44px,8vw,86px);
+    line-height:.98;
+    letter-spacing:-.02em;
+    font-variation-settings:"opsz" 120,"SOFT" 60;
+  }
+  h1 em{font-style:italic;font-weight:500;color:var(--amber-glow)}
+  .lede{margin-top:26px;max-width:560px;color:var(--ink-dim);font-size:18px;line-height:1.65}
+  .lede strong{color:var(--ink);font-weight:500}
+
+  /* download card */
+  .card{
+    margin-top:54px;
+    border:1px solid var(--line);
+    background:linear-gradient(180deg,var(--bg-2),rgba(28,24,18,.6));
+    border-radius:14px;
+    padding:30px;
+    display:flex;flex-direction:column;gap:26px;
+    box-shadow:0 30px 60px -30px rgba(0,0,0,.7),inset 0 1px 0 rgba(236,227,210,.04);
+  }
+  .row{display:flex;align-items:flex-start;gap:26px;flex-wrap:wrap}
+  .dl{
+    flex:1 1 240px;
+    display:inline-flex;align-items:center;justify-content:center;gap:14px;
+    padding:18px 26px;
+    background:linear-gradient(180deg,var(--amber-glow),var(--amber));
+    color:#1a1208;
+    font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:.005em;
+    text-decoration:none;border-radius:10px;
+    border:1px solid rgba(255,210,140,.5);
+    box-shadow:0 0 0 0 rgba(240,182,90,.5),0 16px 30px -14px rgba(224,164,74,.7);
+    transition:transform .18s ease,box-shadow .18s ease;
+    position:relative;overflow:hidden;
+  }
+  .dl::before{
+    content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);
+    transform:translateX(-120%);transition:transform .6s ease;
+  }
+  .dl:hover{transform:translateY(-2px);box-shadow:0 0 0 4px rgba(240,182,90,.15),0 22px 38px -14px rgba(224,164,74,.8)}
+  .dl:hover::before{transform:translateX(120%)}
+  .dl:active{transform:translateY(0)}
+  .dl svg{width:22px;height:22px;flex:none}
+
+  .meta{flex:2 1 320px;display:grid;grid-template-columns:auto 1fr;gap:9px 18px;font-family:var(--mono);font-size:12.5px;align-content:center}
+  .meta dt{color:var(--ink-faint);text-transform:uppercase;letter-spacing:.08em}
+  .meta dd{color:var(--ink);word-break:break-all}
+  .meta .sha{color:var(--amber)}
+
+  /* steps */
+  .steps{margin-top:64px;padding-bottom:40px}
+  .steps h2{font-family:var(--serif);font-weight:400;font-size:30px;letter-spacing:-.01em;margin-bottom:8px}
+  .steps .sub{color:var(--ink-dim);font-size:15px;margin-bottom:34px}
+  ol{list-style:none;display:grid;gap:0;counter-reset:s}
+  ol li{
+    counter-increment:s;position:relative;padding:22px 0 22px 58px;border-top:1px solid var(--line);
+  }
+  ol li:last-child{border-bottom:1px solid var(--line)}
+  ol li::before{
+    content:counter(s,decimal-leading-zero);
+    position:absolute;left:0;top:22px;
+    font-family:var(--mono);font-size:13px;color:var(--amber);letter-spacing:.05em;
+  }
+  ol li h3{font-family:var(--serif);font-weight:500;font-size:18px;margin-bottom:5px}
+  ol li p{color:var(--ink-dim);font-size:15px;max-width:60ch}
+  code{font-family:var(--mono);font-size:13px;background:rgba(224,164,74,.10);color:var(--amber-glow);padding:1px 6px;border-radius:4px}
+
+  /* foot */
+  footer{margin-top:30px;padding:28px 0 50px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--ink-faint);line-height:1.7}
+  footer a{color:var(--ink-dim);text-decoration:none;border-bottom:1px solid var(--line)}
+  footer a:hover{color:var(--amber)}
+
+  /* staggered load */
+  .reveal{opacity:0;transform:translateY(14px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.32s}.d4{animation-delay:.46s}.d5{animation-delay:.60s}
+
+  @media(max-width:560px){
+    .wrap{padding:0 20px}
+    .card{padding:22px}
+    .meta{grid-template-columns:auto 1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="reveal d1">
+    <div class="mark"><span class="sign" aria-hidden="true"></span> SillyTavern</div>
+    <div class="crumb">Android · v1.0 · debug</div>
+  </header>
+
+  <section class="hero">
+    <div class="kicker reveal d1">掌上酒馆 · 现已开放</div>
+    <h1 class="reveal d2">把<em>酒馆</em>揣进口袋。<br>故事随时开场。</h1>
+    <p class="lede reveal d3">
+      SillyTavern 安卓客户端，一个轻量外壳，直连你的私人服务器。
+      <strong>全屏沉浸、多用户登录、键盘自适应</strong>——在手机上获得与桌面一致的对话体验。
+    </p>
+
+    <div class="card reveal d4">
+      <div class="row">
+        <a class="dl" href="SillyTavern-android-debug.apk" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          下载 APK
+        </a>
+        <dl class="meta">
+          <dt>版本</dt><dd>1.0.0 (debug)</dd>
+          <dt>大小</dt><dd>4.11 MB</dd>
+          <dt>架构</dt><dd>universal · Android 6.0+</dd>
+          <dt>签名</dt><dd>debug 自签名</dd>
+          <dt>SHA-256</dt><dd class="sha">fe154ad9392707206521bd3fde2bebe5b99d85cbd8349f0b2c1d07721672335a</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps reveal d5">
+    <h2>安装三步</h2>
+    <p class="sub">从下载到第一句对话，约两分钟。</p>
+    <ol>
+      <li>
+        <h3>下载并打开 APK</h3>
+        <p>点击上方按钮下载。完成后在通知栏或文件管理器中点开 <code>SillyTavern-android-debug.apk</code>。</p>
+      </li>
+      <li>
+        <h3>允许安装未知来源</h3>
+        <p>系统会提示安全风险——这是 Android 对非商店应用的常规警告。前往设置允许「安装未知应用」后继续。</p>
+      </li>
+      <li>
+        <h3>登录服务器</h3>
+        <p>打开 App，自动连接服务器并进入登录页。输入管理员分配的<strong>用户名与密码</strong>，即可开始使用。</p>
+      </li>
+    </ol>
+  </section>
+
+  <footer class="reveal d5">
+    <p>SillyTavern · 基于 <a href="https://github.com/SillyTavern/SillyTavern" target="_blank" rel="noopener">SillyTavern</a> (AGPL-3.0-only) 二次开发的安卓外壳。源码见 <a href="https://github.com/EeiMo/SillyTavern/tree/release/android-app" target="_blank" rel="noopener">EeiMo/SillyTavern</a>。</p>
+    <p style="margin-top:8px">本应用不附带任何模型或服务，需自备服务器与 API 密钥。</p>
+  </footer>
+
+</div>
+</body>
+</html>
