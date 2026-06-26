@@ -17,7 +17,7 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 public class RemoteNavPlugin extends Plugin {
 
     private static final String TAG = "RemoteNav";
-    static final String SERVER_URL = "http://47.74.57.111:8000";
+    static final String SERVER_URL = "https://sillytavern.chat";
     private static String basicAuth = null;
     private static String username = null;
     private static String password = null;

@@ -6,6 +6,6 @@
   "backgroundColor": "#202124",
   "server": {
     "androidScheme": "http",
-    "allowNavigation": ["47.74.57.111"]
+    "allowNavigation": ["sillytavern.chat", "47.74.57.111"]
   }
 }

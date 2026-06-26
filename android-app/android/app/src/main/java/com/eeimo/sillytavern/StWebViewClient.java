@@ -26,7 +26,7 @@ public class StWebViewClient extends BridgeWebViewClient {
         // Keep remote server URLs inside this WebView instead of launching the system browser.
         Uri url = request.getUrl();
         String host = url.getHost();
-        if (host != null && (host.equals("47.74.57.111") || host.equals("localhost") || host.equals("127.0.0.1"))) {
+        if (host != null && (host.equals("sillytavern.chat") || host.equals("www.sillytavern.chat") || host.equals("47.74.57.111") || host.equals("localhost") || host.equals("127.0.0.1"))) {
             return false;
         }
         return super.shouldOverrideUrlLoading(view, request);
@@ -36,7 +36,7 @@ public class StWebViewClient extends BridgeWebViewClient {
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
         Uri u = Uri.parse(url);
         String host = u.getHost();
-        if (host != null && (host.equals("47.74.57.111") || host.equals("localhost") || host.equals("127.0.0.1"))) {
+        if (host != null && (host.equals("sillytavern.chat") || host.equals("www.sillytavern.chat") || host.equals("47.74.57.111") || host.equals("localhost") || host.equals("127.0.0.1"))) {
             return false;
         }
         return super.shouldOverrideUrlLoading(view, url);
